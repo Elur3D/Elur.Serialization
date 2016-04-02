@@ -1,5 +1,9 @@
-﻿
+﻿using UnityEngine;
 using System;
+#if UNITY_EDITOR
+using UnityEditor;
+using System.IO;
+#endif
 
 using FullSerializer;
 
@@ -53,6 +57,27 @@ namespace Serialization
             T deserialized = default(T);
             _serializer.TryDeserialize<T>(data, ref deserialized).AssertSuccessWithoutWarnings();
             return deserialized;
+        }
+
+
+        public static T Deserialize<T>(this TextAsset textAsset)
+        {
+            return JSON.Deserialize<T>(textAsset.text);
+        }
+
+        public static void Serialize<T>(this TextAsset textAsset, T fsm)
+        {
+            #if UNITY_EDITOR
+            var path = AssetDatabase.GetAssetPath(textAsset);
+            var dir = Application.dataPath.Replace("Assets", "");
+            path = Path.Combine(dir, path);
+
+            using (StreamWriter writer = new StreamWriter(path, false))
+            {
+                writer.Write(JSON.Serialize<T>(fsm, true));
+                writer.Close();
+            }
+            #endif
         }
     }
 }
