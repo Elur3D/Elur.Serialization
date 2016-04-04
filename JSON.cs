@@ -65,7 +65,7 @@ namespace Serialization
             return JSON.Deserialize<T>(textAsset.text);
         }
 
-        public static void Serialize<T>(this TextAsset textAsset, T fsm)
+        public static void Serialize<T>(this TextAsset textAsset, T data)
         {
             #if UNITY_EDITOR
             var path = AssetDatabase.GetAssetPath(textAsset);
@@ -74,7 +74,7 @@ namespace Serialization
 
             using (StreamWriter writer = new StreamWriter(path, false))
             {
-                writer.Write(JSON.Serialize<T>(fsm, true));
+                writer.Write(JSON.Serialize<T>(data, true));
                 writer.Close();
             }
             #endif
