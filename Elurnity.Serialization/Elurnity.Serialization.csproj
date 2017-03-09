@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F18EF537-3370-427F-931B-536A4A9783DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Elurnity.Serialization</RootNamespace>
+    <AssemblyName>Elurnity.Serialization</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Injector.cs" />
+    <Compile Include="SimpleTypeInfo.cs" />
+    <Compile Include="TypeWrap.cs" />
+    <Compile Include="FastReflection\TypeMemberInfoReflection.cs" />
+    <Compile Include="FastReflection\TypeInfoReflection.cs" />
+    <Compile Include="TypeInfo\TypeInfo.cs" />
+    <Compile Include="TypeInfo\TypeMember.cs" />
+    <Compile Include="Container\TypeInfo.cs" />
+    <Compile Include="Container\TypeMember.cs" />
+    <Compile Include="Container\Container.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FastReflection\" />
+    <Folder Include="TypeInfo\" />
+    <Folder Include="Container\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

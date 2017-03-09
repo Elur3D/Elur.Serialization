@@ -4,11 +4,11 @@ using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace Serialization
+namespace Elurnity.Serialization
 {
-    public class TypeInfo
+    public class SimpleTypeInfo
     {
-        public class Member
+        public class SimpleMemberTypeInfo
         {
             public Type type;
             public string name;
@@ -18,15 +18,15 @@ namespace Serialization
         }
 
         public Constructor ctor;
-        public List<Member> members;
+        public List<SimpleMemberTypeInfo> members;
 
         public delegate object Getter(object instance);
         public delegate void Setter(object instance, object value);
         public delegate object Constructor();
 
-        public static TypeInfo getInfo(Type type)
+        public static SimpleTypeInfo getInfo(Type type)
         {
-            List<Member> members = new List<Member>();
+            List<SimpleMemberTypeInfo> members = new List<SimpleMemberTypeInfo>();
 
             Constructor ctor = () =>
             {
@@ -37,7 +37,7 @@ namespace Serialization
             {
                 var _info = info;
 
-                Member member = new Member
+                SimpleMemberTypeInfo member = new SimpleMemberTypeInfo
                 {
                     type = _info.PropertyType,
                     name = _info.Name,
@@ -61,7 +61,7 @@ namespace Serialization
             {
                 var _info = info;
 
-                members.Add(new Member
+                members.Add(new SimpleMemberTypeInfo
                 {
                     type = _info.FieldType,
                     name = _info.Name,
@@ -71,7 +71,7 @@ namespace Serialization
                 });
             }
 
-            return new TypeInfo
+            return new SimpleTypeInfo
             {
                 ctor = ctor,
                 members = members,

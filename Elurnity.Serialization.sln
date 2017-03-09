@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elurnity.Serialization", "Elurnity.Serialization\Elurnity.Serialization.csproj", "{F18EF537-3370-427F-931B-536A4A9783DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elurnity.SerializationTests", "Elurnity.SerializationTests\Elurnity.SerializationTests.csproj", "{88090105-9406-4554-875C-201FA6D5F854}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elurnity.Misc", "Elurnity.Misc\Elurnity.Misc.csproj", "{F048265D-F50E-4214-BAD9-B061FFAFFAA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F18EF537-3370-427F-931B-536A4A9783DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18EF537-3370-427F-931B-536A4A9783DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18EF537-3370-427F-931B-536A4A9783DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18EF537-3370-427F-931B-536A4A9783DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88090105-9406-4554-875C-201FA6D5F854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88090105-9406-4554-875C-201FA6D5F854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88090105-9406-4554-875C-201FA6D5F854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88090105-9406-4554-875C-201FA6D5F854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F048265D-F50E-4214-BAD9-B061FFAFFAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F048265D-F50E-4214-BAD9-B061FFAFFAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F048265D-F50E-4214-BAD9-B061FFAFFAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F048265D-F50E-4214-BAD9-B061FFAFFAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Serialization
+namespace Elurnity.Serialization
 {
-    public sealed class Container : Dictionary<Type, object>
+    public sealed class IoCContainer : Dictionary<Type, object>
     {
     }
 
@@ -12,13 +12,13 @@ namespace Serialization
     {
         private HashSet<object> visited = new HashSet<object>();
 
-        public void inject(object instance, Container container)
+        public void inject(object instance, IoCContainer container)
         {
             visited.Clear();
             _inject(instance, container);
         }
 
-        private void _inject(object instance, Container container)
+        private void _inject(object instance, IoCContainer container)
         {
             if (instance == null || visited.Contains(instance))
             {
@@ -35,7 +35,7 @@ namespace Serialization
                 }
             }
 
-            foreach (var member in TypeInfo.getInfo(instance.GetType()).members)
+            foreach (var member in SimpleTypeInfo.getInfo(instance.GetType()).members)
             {
                 object value = null;
 

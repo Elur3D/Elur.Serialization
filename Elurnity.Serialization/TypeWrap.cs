@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace Serialization
+namespace Elurnity.Serialization
 {
     public class TypeWrap : Dictionary<string, object>
     {
@@ -14,11 +14,11 @@ namespace Serialization
         {
         }
 
-        public static TypeWrap wrap(object instance)
+        public static TypeWrap Wrap(object instance)
         {
             TypeWrap wrap = new TypeWrap();
 
-            foreach (var member in TypeInfo.getInfo(instance.GetType()).members)
+            foreach (var member in SimpleTypeInfo.getInfo(instance.GetType()).members)
             {
                 if (member.getter != null)
                 {
@@ -31,14 +31,14 @@ namespace Serialization
             return wrap;
         }
 
-        public void unwrap(object instance)
+        public void Unwrap(object instance)
         {
             if (instance == null)
             {
                 return;
             }
 
-            foreach (var member in TypeInfo.getInfo(instance.GetType()).members)
+            foreach (var member in SimpleTypeInfo.getInfo(instance.GetType()).members)
             {
                 if (member.setter != null && this.ContainsKey(member.name))
                 {
