@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Elurnity.Serialization
 {
-    public static class ReflectionMember
+    public static class ReflectionTypeMember
     {
         internal class ValueTypeMemberReflection<T, U> : ValueTypeMember<T, U> where T : struct
         {
@@ -11,25 +11,12 @@ namespace Elurnity.Serialization
             {
                 if (getMethod != null)
                 {
-                    Getter = getMethod.CreateDelegate(typeof(GetterDelegate)) as GetterDelegate;
+                    Getter = (ref T instance) => (U)getMethod.Invoke(instance, null);
                 }
 
                 if (setMethod != null)
                 {
-                    Setter = getMethod.CreateDelegate(typeof(SetterDelegate)) as SetterDelegate;
-                }
-            }
-
-            public ValueTypeMemberReflection(Delegate getMethod, Delegate setMethod)
-            {
-                if (getMethod != null)
-                {
-                    Getter = getMethod as GetterDelegate;
-                }
-
-                if (setMethod != null)
-                {
-                    Setter = setMethod as SetterDelegate;
+                    //Setter = (ref T instance, U value) => setMethod.Invoke(instance, new [] { value });
                 }
             }
         }
@@ -40,12 +27,12 @@ namespace Elurnity.Serialization
             {
                 if (getMethod != null)
                 {
-                    Getter = getMethod.CreateDelegate(typeof(GetterDelegate)) as GetterDelegate;
+                    //Getter = getMethod.CreateDelegate(typeof(GetterDelegate)) as GetterDelegate;
                 }
 
                 if (setMethod != null)
                 {
-                    Setter = setMethod.CreateDelegate(typeof(SetterDelegate)) as SetterDelegate;
+                    //Setter = setMethod.CreateDelegate(typeof(SetterDelegate)) as SetterDelegate;
                 }
             }
 

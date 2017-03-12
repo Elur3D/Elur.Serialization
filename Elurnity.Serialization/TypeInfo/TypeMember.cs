@@ -19,11 +19,16 @@ namespace Elurnity.Serialization
 
     public partial class ValueTypeMember<T, U> : TypeMember<T> where T : struct
     {
+        /*
         public delegate U GetterDelegate(ref T instance);
         public delegate void SetterDelegate(ref T instance, U value);
 
         public GetterDelegate Getter;
         public SetterDelegate Setter;
+        */
+
+        public RefFunc<T, U> Getter;
+        public RefAction<T, U> Setter;
 
         public override object Get(object instance)
         {
@@ -44,8 +49,8 @@ namespace Elurnity.Serialization
         public delegate U GetterDelegate(T instance);
         public delegate void SetterDelegate(T instance, U field);
 
-        public GetterDelegate Getter;
-        public SetterDelegate Setter;
+        public Func<T, U> Getter;
+        public Action<T, U> Setter;
 
         public override object Get(object instance)
         {

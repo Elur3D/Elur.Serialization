@@ -4,7 +4,7 @@ namespace Elurnity.Serialization
 {
     public partial class TypeInfo<T>
     {
-        public void Unwrap(ref T instance, Container container)
+        public void Unwrap(ref T instance, IContainer container)
         {
             if (instance == null)
             {
@@ -18,7 +18,7 @@ namespace Elurnity.Serialization
             }
         }
 
-        public void Wrap(ref T instance, Container container)
+        public void Wrap(ref T instance, IContainer container)
         {
             if (instance == null)
             {
