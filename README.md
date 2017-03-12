@@ -11,6 +11,9 @@ A simple set of serialization helpers.
   - Code generation using T4 templates or IL weaving when AOT is required.
 - Just provide some useful building blocks.
 
+## Status
+- Work in progress.
+
 ## API
 
 An IContainer can be used to store or retrieve data for/from an instance. A IContainer could be a IoC container, a network message or a JSON file.
@@ -38,7 +41,6 @@ The TypeMembers provide getters and setters for a reference types and value type
 ```
 public class TypeMember<T, U> : TypeMember<T> where T : class
 {
-    // Unboxed
     public Func<T, U> Getter;
     public Action<T, U> Setter;
 }
