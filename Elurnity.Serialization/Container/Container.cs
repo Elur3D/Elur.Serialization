@@ -3,14 +3,20 @@ using System.Collections.Generic;
 
 namespace Elurnity.Serialization
 {
+    public interface IContainer
+    {
+        bool TryGetValue<T>(TypeMember member, out T value);
+        void SetValue<T>(TypeMember member, T value);
+    }
+
     public class Container : Dictionary<string, object>
     {
-        public bool TryGetValue<T>(string name, out T member)
+        public bool TryGetValue<T>(TypeMember member, out T value)
         {
             throw new NotImplementedException();
         }
 
-        public void SetValue<U>(string name, U u)
+        public void SetValue<T>(TypeMember member, T value)
         {
             throw new NotImplementedException();
         }

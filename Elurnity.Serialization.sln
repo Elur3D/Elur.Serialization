@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elurnity.SerializationTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elurnity.Misc", "Elurnity.Misc\Elurnity.Misc.csproj", "{F048265D-F50E-4214-BAD9-B061FFAFFAA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elurnity.IoC", "Elurnity.IoC\Elurnity.IoC.csproj", "{31F0EA77-04C8-447F-A5A4-30FA85D15988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elurnity.IoC.Tests", "Elurnity.IoC.Tests\Elurnity.IoC.Tests.csproj", "{69D2F13A-1854-4E39-A53E-250A1A3D27C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +29,13 @@ Global
 		{F048265D-F50E-4214-BAD9-B061FFAFFAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F048265D-F50E-4214-BAD9-B061FFAFFAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F048265D-F50E-4214-BAD9-B061FFAFFAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F0EA77-04C8-447F-A5A4-30FA85D15988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F0EA77-04C8-447F-A5A4-30FA85D15988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F0EA77-04C8-447F-A5A4-30FA85D15988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F0EA77-04C8-447F-A5A4-30FA85D15988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69D2F13A-1854-4E39-A53E-250A1A3D27C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D2F13A-1854-4E39-A53E-250A1A3D27C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D2F13A-1854-4E39-A53E-250A1A3D27C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D2F13A-1854-4E39-A53E-250A1A3D27C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

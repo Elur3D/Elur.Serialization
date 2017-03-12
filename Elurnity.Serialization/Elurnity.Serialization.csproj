@@ -32,20 +32,27 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Injector.cs" />
-    <Compile Include="SimpleTypeInfo.cs" />
-    <Compile Include="TypeWrap.cs" />
-    <Compile Include="FastReflection\TypeMemberInfoReflection.cs" />
-    <Compile Include="FastReflection\TypeInfoReflection.cs" />
     <Compile Include="TypeInfo\TypeInfo.cs" />
     <Compile Include="TypeInfo\TypeMember.cs" />
     <Compile Include="Container\TypeInfo.cs" />
     <Compile Include="Container\TypeMember.cs" />
     <Compile Include="Container\Container.cs" />
+    <Compile Include="Implementations\FastReflection\FastReflectionTypeInfo.cs" />
+    <Compile Include="Implementations\FastReflection\FastReflectionTypeMember.cs" />
+    <Compile Include="Implementations\Reflection\ReflectionTypeInfo.cs" />
+    <Compile Include="Implementations\Reflection\ReflectionTypeMember.cs" />
+    <Compile Include="Implementations\Expression\ExpressionTypeInfo.cs" />
+    <Compile Include="Implementations\Expression\ExpressionTypeMember.cs" />
+    <Compile Include="Misc\RefAction.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FastReflection\" />
     <Folder Include="TypeInfo\" />
     <Folder Include="Container\" />
+    <Folder Include="Implementations\" />
+    <Folder Include="Implementations\FastReflection\" />
+    <Folder Include="Implementations\Reflection\" />
+    <Folder Include="Implementations\Expression\" />
+    <Folder Include="Misc\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

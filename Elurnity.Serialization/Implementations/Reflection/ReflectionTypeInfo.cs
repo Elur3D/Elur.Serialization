@@ -4,15 +4,15 @@ using System.Reflection;
 
 namespace Elurnity.Serialization
 {
-    public class TypeInfoReflection
+    public class ReflectionTypeInfo
     {
         public List<TypeMember> members;
 
-        protected TypeInfoReflection()
+        protected ReflectionTypeInfo()
         {
         }
 
-        public static TypeInfoReflection getInfo(Type type)
+        public static ReflectionTypeInfo getInfo(Type type)
         {
             List<TypeMember> members = new List<TypeMember>();
 
@@ -33,7 +33,7 @@ namespace Elurnity.Serialization
                     setMethodInfo = _info.GetSetMethod();
                 }
 
-                var memberTypeInfo = ReflectionMember.CreateMember(getMethodInfo, setMethodInfo, type, info.PropertyType);
+                var memberTypeInfo = FastReflectionTypeMember.CreateMember(getMethodInfo, setMethodInfo, type, info.PropertyType);
                 members.Add(memberTypeInfo);
             }
 
@@ -41,11 +41,11 @@ namespace Elurnity.Serialization
             {
                 var _info = info;
 
-                var memberTypeInfo = ReflectionMember.CreateMember(_info, type, info.FieldType);
+                var memberTypeInfo = FastReflectionTypeMember.CreateMember(_info, type, info.FieldType);
                 members.Add(memberTypeInfo);
             }
 
-            return new TypeInfoReflection
+            return new ReflectionTypeInfo
             {
                 members = members,
             };
