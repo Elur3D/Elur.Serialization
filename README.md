@@ -80,9 +80,13 @@ public class TypeInfo
 
 - The implemented containers should take care of the type convertions/cohercions.
   - A JSON container for example will convert a data type into a set of primitive types, lists and dictionaries. 
-- Be aware of object circular references while traversing objects, use a simple depth-first search :-)
+- Be aware of object circular references while traversing objects, use a simple depth-first search for example :-)
+- Dictionary look ups are expensive.
 
 ## Alternatives
 - [mgravell's fast-member](https://github.com/mgravell/fast-member)
 - [vexe's Fast.Reflection](https://github.com/vexe/Fast.Reflection)
 - [fasterflect](https://fasterflect.codeplex.com/)
+
+## References
+- [Wire – Writing one of the fastest .NET serializers](https://rogerjohansson.blog/2016/08/16/wire-writing-one-of-the-fastest-net-serializers/)
