@@ -4,17 +4,18 @@ A simple set of serialization helpers.
 
 ## Objectives
 - Provide a simple container, and a base for building simple IoC containers or network message formatters.
-- Provide fast accessors for fields and properties, without boxing when possible.
+- Provide fast accessors for fields and properties, without boxing whenever is possible.
 - Provide different backends:
   - Fast reflection using open delegates.
   - Compiled lambdas using expressions.
   - Code generation using T4 templates or IL weaving when AOT is required.
-- Just provide some useful building blocks.
 
 ## Status
 - Work in progress.
 
 ## API
+
+### Unboxed API
 
 An IContainer can be used to store or retrieve data for/from an instance. A IContainer could be a IoC container, a network message or a JSON file.
 
@@ -26,7 +27,7 @@ public interface IContainer
 }
 ```
 
-The TypeInfo<T> allows wrapping and unwrapping the data from the container without boxing.
+The TypeInfo<T> allows wrapping and unwrapping an instance from a container without boxing.
 
 ```
 public class TypeInfo<T>
@@ -36,7 +37,7 @@ public class TypeInfo<T>
 }
 ```
 
-The TypeMembers provide getters and setters for a reference types and value types
+The TypeMembers provide the getters and setters for reference types and value types
 
 ```
 public class TypeMember<T, U> : TypeMember<T> where T : class
@@ -51,6 +52,35 @@ public partial class ValueTypeMember<T, U> : TypeMember<T> where T : struct
     public RefAction<T, U> Setter;
 }
 ```
+
+### Boxed API
+
+```
+public class TypeInfo
+{
+        public readonly string Name;
+        public readonly Action<object> Constructor;
+        
+        
+        public readonly TypeMember[] members;
+}
+```
+
+```
+    public abstract partial class TypeMember
+    {
+        public string Name;
+        public Type type;
+        public object Get(object instance);
+        public object Set(object instance, object field);
+    }
+```
+
+## Other considerations
+
+- The implemented containers should take care of the type convertions/cohercions.
+  - A JSON container for example will convert a data type into a set of primitive types, lists and dictionaries. 
+- Be aware of object circular references while traversing objects, use a simple depth-first search :-)
 
 ## Alternatives
 - [mgravell's fast-member](https://github.com/mgravell/fast-member)
