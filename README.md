@@ -1,4 +1,4 @@
-# Elurnity.Serialization
+# Elurnity.Serialization [![Build Status](https://travis-ci.org/jonanh/Elurnity.Serialization.svg?branch=master)](https://travis-ci.org/jonanh/Elurnity.Serialization)
 
 A simple set of serialization helpers.
 
